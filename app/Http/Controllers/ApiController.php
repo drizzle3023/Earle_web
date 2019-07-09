@@ -121,7 +121,6 @@ class ApiController extends Controller
         $title = request('title');
         $jobNo_id = request('jobNo_id');
         $route = request('route');
-        $description = request('description');
         $asset = request('asset');
         $comment = request('comment');
         $urgency = request('urgency');
@@ -136,7 +135,6 @@ class ApiController extends Controller
         $image->jobnumber_id = $jobNo_id;
         $image->title = $title;
         $image->route = $route;
-        $image->description = $description;
         $image->asset = $asset;
         $image->comment = $comment;
         $image->urgency = $urgency;
@@ -170,7 +168,6 @@ class ApiController extends Controller
 
         $title = request('title');
         $route = request('route');
-        $description = request('description');
         $comment = request('comment');
         $job_id = request('job_id');
         $start_date = request('start_date');
@@ -183,9 +180,6 @@ class ApiController extends Controller
         }
         if ($route != "" && isset($route)) {
             $where_clause[] = ['route', 'like', "%$route%"];
-        }
-        if ($description != "" && isset($description)) {
-            $where_clause[] = ['description', 'like', "%$description%"];
         }
         if ($comment != "" && isset($comment)) {
             $where_clause[] = ['comment', 'like', "%$comment%"];
@@ -217,6 +211,7 @@ class ApiController extends Controller
     {
         $user = request('user');
         $jobnumber_array = [];
+        Log::info($user->name);
         if ($user->role == 'SUPER') {
             $jobnumber_array = JobNumber::orderby('company_id')->with('company')->get();
         } else {
@@ -255,7 +250,6 @@ class ApiController extends Controller
         $title = request('title');
         $jobNo_id = request('job_id');
         $route = request('route');
-        $description = request('description');
         $asset = request('asset');
         $comment = request('comment');
         $urgency = request('urgency');
@@ -271,7 +265,6 @@ class ApiController extends Controller
             'jobnumber_id' => $jobNo_id,
             'title' => $title,
             'route' => $route,
-            'description' => $description,
             'asset' => $asset,
             'comment' => $comment,
             'urgency' => $urgency,

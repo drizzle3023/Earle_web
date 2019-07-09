@@ -51,7 +51,6 @@
                         <th class="d-none d-sm-table-cell" >Location</th>
                         <th class="d-none d-sm-table-cell" >JobNo</th>
                         <th class="d-none d-sm-table-cell" >Route</th>
-                        <th class="d-none d-sm-table-cell" >Description</th>
                         <th class="d-none d-sm-table-cell" >Asset</th>
                         <th class="d-none d-sm-table-cell" >Comment</th>
                         <th class="d-none d-sm-table-cell" >Urgency</th>
@@ -84,9 +83,6 @@
                         </td>
                         <td class="d-none d-sm-table-cell">
                             {{$image->route}}
-                        </td>
-                        <td class="d-none d-sm-table-cell">
-                            {{$image->description}}
                         </td>
                         <td class="d-none d-sm-table-cell">
                             {{$image->asset}}
